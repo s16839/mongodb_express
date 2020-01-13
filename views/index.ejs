@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movies Database Client</title>
+
+  <style>
+    table, form {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+
+</head>
+<body>
+  <h1>Movies List:</h1> 
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Price</th>
+        </tr>
+        <% for(var i=0; i<movies.length; i++) {%>
+            <tr>
+              <td><%= movies[i].title %></td>
+              <td><%= movies[i].year %></td>
+              <td><%= movies[i].price %></td>
+            </tr>
+          <% } %>
+    </table>
+
+    <h1>Add new:</h1>
+
+  <form action="/movies" method="POST">
+    <input type="text" placeholder="title" name="title">
+    <input type="text" placeholder="year" name="year">
+    <input type="text" placeholder="price" name="price">
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
